@@ -1,0 +1,23 @@
+name: Simple Test
+
+on:
+  push:
+    branches: [ main, gh_actions_test ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Run simple test
+        run: |
+          echo "Hello from GitHub Actions!"
+          echo "Current directory contents:"
+          ls -la
+          echo "Workflow is working correctly!"
